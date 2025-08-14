@@ -14,7 +14,7 @@ int main(){
 
     //core logic
     bool isSorted = true;
-    for(int i=1 ; i<n ;i++){
+    for(int i=1 ; i<n ;i++){ //When i=0, arr[i-1] becomes arr[-1], which tries to access memory before the array starts. , so we used i=1.
         if(arr[i] < arr[i-1]){
             isSorted = false;
             break;
