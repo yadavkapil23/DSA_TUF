@@ -1,23 +1,61 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-int main() {
-    int arr[] = {1, 1, 2, 2, 3};
-    int n = 5;
+bool isSorted(vector<int>& arr,int n){ //function to check whether the array is sorted or not.
+    for(int i=1 ; i<n ; i++){
+    if(arr[i] < arr[i-1]){
+        return false;
+    }
+    }
+    return true;
+}
 
-    int i = 0; // pointer for the last unique element
-    for (int j = 1; j < n; j++) {
-        if (arr[j] != arr[i]) { //if the j is not equal to i , it means we have found a unique element j.
-            arr[i + 1] = arr[j]; // place the next unique element
-            i++; //increment
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0 ; i<n ; i++){
+        cin>>arr[i];
+    }
+    
+    //logic for sorted array.
+    // arr = {1,2,2,3,4}
+    int newSize = 0;
+    if(isSorted(arr,n)){
+        int i=0;
+        for(int j=1 ; j<n ; j++){
+            if(arr[j] != arr[i]){
+                i++;
+                arr[i] = arr[j];
+            }
+        }
+        newSize = i+1;
+}
+
+
+//for unsorted array.
+else{
+    newSize = 0;
+    for(int i=0 ; i<n ; i++){
+        bool found = false;
+    for(int j=0 ; j<newSize ; j++){
+        if(arr[i] == arr[j]){
+            found = true;
+            break;
         }
     }
-
-    int newSize = i + 1; // size of array with unique elements
-
-    cout << "Array after removing duplicates: ";
-    for (int k = 0; k < newSize; k++) {
-        cout << arr[k] << " ";
+    if(!found){
+        arr[newSize] = arr[i];
+        newSize++;
+    }
+    }
+    }
+    
+    
+    cout<<"Array is : ";
+    for(int i=0 ; i<newSize ; i++){
+        cout<<arr[i]<<" ";
     }
     return 0;
 }
