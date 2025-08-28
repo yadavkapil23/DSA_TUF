@@ -22,7 +22,7 @@ void my_function(vector<int> &v, int target){
                     left++;
                 }
                 else if(sum > target){
-                    right++;
+                    right--;
                 }
             }
         }
