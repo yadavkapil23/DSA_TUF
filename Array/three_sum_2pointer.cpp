@@ -17,6 +17,15 @@ void threeSum(vector<int>& v, int target) {
                 cout << "Found: " << v[i] << ", " << v[left] << ", " << v[right] << endl;
                 left++;
                 right--;
+
+                if(left<right && v[left] == v[left+1]){
+                    left++;
+                }
+
+                
+                if(left<right && v[right] == v[right-1]){
+                    right--;
+                }
             }
             else if(sum < target) {
                 left++;
