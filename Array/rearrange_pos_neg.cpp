@@ -20,8 +20,8 @@ vector<int> rearrange(vector<int>&v,int n){
     int j=0;
     
     while(i < pos.size() && j < neg.size()){
-        ans.push_back(pos[i++]);  
-        ans.push_back(neg[j++]);  
+        ans.push_back(pos[i++]);  //firstly this line will run and add positive to ans ,
+        ans.push_back(neg[j++]);   //secondly this line will run and add neg to ans.
     }
     
     while (i < pos.size()) ans.push_back(pos[i++]);
