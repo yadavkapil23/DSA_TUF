@@ -7,18 +7,13 @@ vector<int> leaders(vector<int>&v,int n){
 
     vector<int> ans;
     int max_from_right = INT_MIN;
-    for(int i=0 ; i<n ; i++){
+    for(int i=n-1 ; i>=0 ; i--){
         if(v[i] >= max_from_right){
             ans.push_back(v[i]);
             max_from_right = v[i];
         }
     }
-    if(n==0){
-        return {};
-    }
-    else{
         return ans;
-    }
 
 }
 
@@ -31,8 +26,8 @@ int main(){
     }
     vector<int> ans = leaders(v,n);
 
-    for(int i=0 ; i<n; i++){
-        cout<<v[i]<<endl;
+    for(int i=0 ; i<ans.size(); i++){
+        cout<<ans[i]<<endl;
     }
 return 0;
 
