@@ -15,12 +15,12 @@ vector<vector<int>> mergeOverlapping(vector<vector<int>>& arr) {
         //ans.back() : the previous interval.
         //ans.back()[1] : second element of the previous interval.
 
-        if(ans.empty() || arr[i][0] > ans.back()[1]) {
-            ans.push_back(arr[i]);
+        if(ans.empty() || arr[i][0] > ans.back()[1]) { //if the ans is empty and the start_of_curent > last_end.
+            ans.push_back(arr[i]); //insert the current interval into the array.
         }
         // If overlap, merge with previous interval
-        else if(arr[i][0] <= ans.back()[1]){
-            ans.back()[1] = max(ans.back()[1], arr[i][1]);
+        else if(arr[i][0] <= ans.back()[1]){ //if the start of current <= end of preivous.
+            ans.back()[1] = max(ans.back()[1], arr[i][1]); //find the max of last end.
         }
     }
     
