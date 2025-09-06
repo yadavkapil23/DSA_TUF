@@ -6,7 +6,7 @@ using namespace std;
 
 void merge(vector<int>& arr, int l, int mid, int r) {
     // Calculate the sizes of the two temporary sub-vectors
-    int n1 = mid - l + 1;
+    int n1 = mid + 1 - l;
     int n2 = r - mid;
 
     // Create temporary vectors to hold the two halves
@@ -24,7 +24,7 @@ void merge(vector<int>& arr, int l, int mid, int r) {
     // Merge the temporary vectors back into the main vector arr[l...r]
     int i = 0; // Initial index for the first sub-vector (a)
     int j = 0; // Initial index for the second sub-vector (b)
-    int k = l; // Initial index for the merged sub-vector (arr)
+    int k = l; // tracks pos of main vector where managed elements will be placed.
 
     // Compare elements from 'a' and 'b' and place the smaller one in 'arr'
     while (i < n1 && j < n2) {
@@ -57,7 +57,7 @@ void mergesort(vector<int>& arr, int l, int r) {
     // Base case: if the segment has 0 or 1 elements, it's already sorted
     if (l < r) {
         // Find the middle point to divide the vector into two halves
-        int mid = l + (r - l) / 2; // Avoids overflow for large l and r
+        int mid = (l + r) / 2; // Avoids overflow for large l and r
 
         // Recursively sort the first and second halves
         mergesort(arr, l, mid);
@@ -82,7 +82,8 @@ int main() {
         cin >> arr[i];
     }
 
-    // Call mergesort on the entire vector
+    // Call mergesort on the entire vector.
+    //here l = 0 , r = arr.size()-1.
     mergesort(arr, 0, arr.size() - 1);
 
     // Print the sorted vector
