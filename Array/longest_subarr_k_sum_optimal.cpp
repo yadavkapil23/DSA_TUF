@@ -19,11 +19,14 @@ int main() {
 
             // Instead of a 3rd loop, just add the new element to the running sum.
             currentSum += v[j];
-            
-            // Check if the current subarray's sum matches K.
+
             if (currentSum == K) {
                 // If it matches, update our max length if this subarray is longer.
                 maxLen = max(maxLen, j - i + 1);
+// For example:
+// If i = 2 and j = 4, the subarray is [v[2], v[3], v[4]].
+// The number of elements is 3, but j - i = 4 - 2 = 2 (incorrect).
+// Adding +1 gives the correct length: j - i + 1 = 4 - 2 + 1 = 3.
             }
         }
     }
