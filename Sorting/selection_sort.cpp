@@ -1,33 +1,22 @@
 #include<iostream>
 #include<vector>
-#include<algorithm>
-#include<climits>
 using namespace std;
-vector<int> selection(vector<int>&v){
+int main(){
+    vector<int> v = {1,35,76,21,39,10,99};
     int n = v.size();
-
-    //finding the smallest element in array.
-
-    for(int i=0 ; i<n-1 ; i++){
+    //implementing the selection sort.
+    for(int i=0 ; i<n ; i++){
         int small = i;
         for(int j=i+1 ; j<n ; j++){
             if(v[j] < v[small]){
-                swap(v[j],v[small]);
+                small = j;
             }
         }
-        if(v[i] < small){
-            small = v[i];
-        }
+        swap(v[i],v[small]);
     }
-
-    return v;
-}
-int main(){
-vector<int> v = {87,21,34,49,10,20,68};
-vector<int> x = selection(v);
-
-for(int i=0 ; i<x.size() ; i++){
-    cout<<x[i]<<" ";
-}
-return 0;
+    
+    cout<<"The Vector After Applying the Selection Sort : "<<endl;
+    for(int i=0 ; i<n; i++){
+        cout<<v[i]<<endl;
+    }
 }
