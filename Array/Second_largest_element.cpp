@@ -21,7 +21,7 @@ int main() {
             sec_largest = arr[i];
         }
     }
-    cout << "Largest element is: " << largest << endl;
+    cout << "Largest element is: " << largest << endl; //edge case , if there are all same elements , no sec largest element
     if (sec_largest == INT_MIN) {
         cout << "No second largest element (all elements are the same)." << endl;
     } else {
