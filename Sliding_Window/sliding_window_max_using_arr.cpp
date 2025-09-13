@@ -1,42 +1,32 @@
-#include<iostream>
 #include<vector>
+#include<iostream>
 #include<climits>
-#include<algorithm>
 using namespace std;
-int sliding_max(vector<int>&v,int n){
-    //sliding to the first window.
-    int maxi = INT_MIN;
-    int k =3;
-    if(k<=0 || k>n){
-        cout<<"Invalid K."<<endl;
-        return -1;
+vector<int> sliding_max(vector<int>& v, int n, int k) {
+    vector<int> result;
+    if(k <= 0 || k > n) {
+        cout << "Invalid K." << endl;
+        return result;
     }
-    else{
-    for(int i=0 ; i<k ; i++){
-        if(v[i] > maxi){
-            maxi = v[i];
+    
+    for(int i = 0; i <= n - k; i++) { //it will be for the length of the window  , like it will decide the length of window to slide.
+        int maxi = INT_MIN;
+        for(int j = i; j < i + k; j++) { //it will tell us from where to where the sliding pf window will occur.
+            maxi = max(maxi, v[j]); //find the maxi between current element and the maxi.
         }
+        result.push_back(maxi);
     }
-    //now going for the next windows.
-    for(int i=k ; i<n ; i++){
-        int newmax = INT_MIN;
-        int leaving_element = v[i-k];
-        int entering_element = v[i];
-        if(v[i] > newmax){
-            newmax = v[i];
-        }
-        maxi = max(newmax,maxi);
-    }
+    return result;
 }
-return maxi; 
-}
-
-int main(){
-    vector<int> v = {12,55,30,84,38,5};
+int main() {
+    vector<int> v = {12, 55, 30, 84, 38, 5};
     int n = v.size();
-
-    int x = sliding_max(v,n);
-    cout<<"max is : "<<x<<" "<<endl;
+    int k = 3;
+    vector<int> res = sliding_max(v, n, k);
+    cout << "Sliding window maximums are: ";
+    for(int val : res) {
+        cout << val << " ";
+    }
+    cout << endl;
     return 0;
-
 }
