@@ -8,9 +8,9 @@ vector<int> removeDuplicates(vector<int>& arr) {
     vector<int> result;
 
     for (int num : arr) {
-        if (seen.find(num) == seen.end()) { // If not already in the set
+        if (seen.find(num) == seen.end()) { 
             seen.insert(num);
-            result.push_back(num); // Add to the result
+            result.push_back(num); 
         }
     }
 
