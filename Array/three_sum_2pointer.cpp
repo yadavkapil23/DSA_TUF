@@ -6,7 +6,10 @@ void threeSum(vector<int>& v, int target) {
     // MUST sort the array first
     sort(v.begin(), v.end());
     
-    for(int i = 0; i < v.size() - 2; i++) {  //here v.size() - 2 , because after that there will be two elements left , which can form triplet.
+    for(int i = 0; i < v.size() - 2; i++) { 
+        if(i > 0 && v[i] == v[i-1]) 
+        continue; 
+        //here v.size() - 2 , because after that there will be two elements left , which can form triplet.
         int left = i + 1;
         int right = v.size() - 1;
         
