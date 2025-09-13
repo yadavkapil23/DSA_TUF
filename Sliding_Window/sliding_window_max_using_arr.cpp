@@ -9,7 +9,7 @@ vector<int> sliding_max(vector<int>& v, int n, int k) {
         return result;
     }
     
-    for(int i = 0; i <= n - k; i++) { //it will be for the length of the window  , like it will decide the length of window to slide.
+    for(int i = 0; i <= n - k; i++) { //it will be for the length of the window  , like it will decide the length of window to slide. , like kitne baar slide hogi.
         int maxi = INT_MIN;
         for(int j = i; j < i + k; j++) { //it will tell us from where to where the sliding pf window will occur.
             maxi = max(maxi, v[j]); //find the maxi between current element and the maxi.
