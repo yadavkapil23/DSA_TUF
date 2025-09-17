@@ -7,7 +7,7 @@ int findPeakElement(const vector<int>& nums) {
     }
     int low = 0;
     int high = nums.size() - 1;
-    while (low < high) {
+    while (low <= high) {
         int mid = low + (high - low) / 2;
         if (nums[mid] < nums[mid + 1]) { //# If mid is less than its right neighbor, a peak exists on the right
             low = mid + 1;
