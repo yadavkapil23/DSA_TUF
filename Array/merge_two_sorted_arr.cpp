@@ -32,7 +32,6 @@ vector<int> merging(vector<int>&v,vector<int>&x, int m,int n){
         result.push_back(x[j]);
         j++;
     }
-    
       return result;
 }
 int main(){
