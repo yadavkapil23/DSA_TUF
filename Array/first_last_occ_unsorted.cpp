@@ -9,7 +9,7 @@ pair<int,int> occurance(vector<int>&arr,int n, int target){
     int mid = low + (high-low)/2;
     for(int i=0 ; i<n ; i++){
         if(arr[i] == mid){
-            if(first == 1){
+            if(first == -1){
                 first = i;
             }
             last = i;
