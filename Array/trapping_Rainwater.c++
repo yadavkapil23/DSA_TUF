@@ -5,7 +5,7 @@ using namespace std;
 int trapping(int arr[],int n){
     int*  left = new int[n];
     int* right = new int[n];
-
+//arrays to store the tallest height on left and right at the every position.
     left[0] = arr[0];
     right[n-1] = arr[n-1];
     for(int i=1 ; i<n ; i++){
