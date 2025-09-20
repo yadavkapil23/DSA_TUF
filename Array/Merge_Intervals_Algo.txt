@@ -1,0 +1,49 @@
+Check if Two Intervals Overlap
+FUNCTION checkOverlap(interval1, interval2):
+    // Two intervals [a,b] and [c,d] overlap if:
+    // First starts before second ends AND second starts before first ends
+    
+    a = interval1.start
+    b = interval1.end
+    c = interval2.start  
+    d = interval2.end
+    
+    IF (a <= d) AND (c <= b):
+        RETURN true  // They overlap
+    ELSE:
+        RETURN false // No overlap
+END FUNCTION
+
+
+
+
+Merge Two Overlapping Intervals
+FUNCTION mergeTwoIntervals(interval1, interval2):
+    // Only call this if you know they overlap!
+    
+    newStart = MIN(interval1.start, interval2.start)
+    newEnd = MAX(interval1.end, interval2.end)
+    
+    RETURN [newStart, newEnd]
+END FUNCTION
+
+
+Input: [[1,3], [2,6], [8,10], [15,18]]
+
+Step 1 - Sort: [[1,3], [2,6], [8,10], [15,18]] (already sorted)
+Step 2 - Initialize: merged = [[1,3]]
+
+Step 3 - Process [2,6]:
+  - Does 2 <= 3? YES → Overlap!
+  - Merge: [1,3] becomes [1,6]
+  - merged = [[1,6]]
+
+Step 3 - Process [8,10]:
+  - Does 8 <= 6? NO → No overlap
+  - Add separately: merged = [[1,6], [8,10]]
+
+Step 3 - Process [15,18]:
+  - Does 15 <= 10? NO → No overlap  
+  - Add separately: merged = [[1,6], [8,10], [15,18]]
+
+Result: [[1,6], [8,10], [15,18]]
