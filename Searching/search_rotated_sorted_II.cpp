@@ -8,13 +8,13 @@ int rotate_sort(vector<int>&v, int n, int k, int target){
         return -1;
     }
     
-    sort(v.begin(), v.end());
-    k = k % n;
+    // sort(v.begin(), v.end());
+    // k = k % n;
     
-    // Rotating the array by k
-    reverse(v.begin(), v.end());
-    reverse(v.begin(), v.begin() + k);
-    reverse(v.begin() + k, v.end());
+    // // Rotating the array by k
+    // reverse(v.begin(), v.end());
+    // reverse(v.begin(), v.begin() + k);
+    // reverse(v.begin() + k, v.end());
     
     int left = 0;
     int right = n - 1;
