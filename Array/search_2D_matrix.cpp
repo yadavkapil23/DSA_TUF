@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& mat, int target) {
-        int n = mat.size();
-        int m = mat[0].size();
+        int n = mat.size(); //no of rows
+        int m = mat[0].size(); //no of columns
         
         int row = 0, col = m - 1;  // start at top-right corner
         while(row < n && col >= 0) {
