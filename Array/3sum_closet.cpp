@@ -4,7 +4,7 @@
 int main(){
 class Solution {
 public:
-    int threeSumClosest(vector<int>& v, int target) {
+int threeSumClosest(vector<int>& v, int target) {
 sort(v.begin(),v.end());
 int n = v.size();
 int sum = 0;
