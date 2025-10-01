@@ -15,7 +15,8 @@ public:
         }
 
         //sorting by freq.
-        sort(freq.begin(), freq.end(), greater<pair<int,int>>());
+        sort(freq.begin(), freq.end(), greater<pair<int,int>>()); //to sort in descending order.
+        //we couldnt use the f.end() to f.begin() ,bcz begin always comes before the end , so thats why we use greater 
 
 
         //top K
