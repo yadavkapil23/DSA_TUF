@@ -1,3 +1,4 @@
+#include<iostream>
 class Solution {
 public:
     int findMin(vector<int>&v){
