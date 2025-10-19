@@ -38,7 +38,7 @@ int main(){
 
     equilibrium(v);
     if(equilibrium(v)){
-        cout<<"Equilibrium"<<endl;
+        cout<<"Equilibrium : "<<endl;
     }
     else{
         cout<<"Not an Equilibrium";
