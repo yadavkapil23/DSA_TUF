@@ -8,7 +8,7 @@ int first_occurrence(vector<int>& arr, int target) {
     while (low <= high) {
         int mid = low + (high - low) / 2;
         if (arr[mid] == target) {
-            first = mid;
+            first = mid; //first to mid pe mil gayi ab ye check krega , ki kya koi or mid ke left m bhi bach gyi ?
             high = mid - 1;
         } else if (arr[mid] < target) {
             low = mid + 1;
@@ -26,7 +26,7 @@ int last_occurrence(vector<int>& arr, int target) {
     while (low <= high) {
         int mid = low + (high - low) / 2;
         if (arr[mid] == target) {
-            last = mid;
+            last = mid; //agar last pos mid pe h , to ye check krega k kya koi uske baad or b last ho skti h , mtlb uske baad b kya koi or val ho skti?
             low = mid + 1;
         } else if (arr[mid] < target) {
             low = mid + 1;

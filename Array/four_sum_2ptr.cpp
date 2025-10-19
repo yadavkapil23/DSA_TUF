@@ -7,11 +7,11 @@ void my_function(vector<int> &v, int target){
     sort(v.begin(), v.end());
     bool found = false;
     
-    for(int i = 0; i < v.size() - 3; i++){
+    for(int i = 0; i < v.size() - 3; i++){  //used to fix the i -> first element.
         // Skip duplicates for i
         if(i > 0 && v[i] == v[i-1]) continue;
         
-        for(int j = i + 1; j < v.size() - 2; j++){
+        for(int j = i + 1; j < v.size() - 2; j++){ //used to fix the j , second element.
             // Skip duplicates for j
             if(j > i + 1 && v[j] == v[j-1]) continue;
             
