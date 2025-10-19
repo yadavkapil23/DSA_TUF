@@ -4,7 +4,7 @@
 using namespace std;
 int max_subarr_sum(vector<int>&v,int n,int k){
     if(k>n || k<=0){
-        cout<<"Invalid Length of Window.";
+        cout<<"Invalid Length of Window";
         return -1;
     }
     else{
