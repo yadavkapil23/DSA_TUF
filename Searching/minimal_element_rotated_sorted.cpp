@@ -1,3 +1,5 @@
+#include<vector>
+#include<iostream>
 class Solution{
 int findMin(vector<int>& arr) {
     int low = 0, high = arr.size() - 1;
