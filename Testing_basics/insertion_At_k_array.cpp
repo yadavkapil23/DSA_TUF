@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int arr[6] = {5, 9, 2, 7, 3}; // 5 elements, space for 6
-    int n = 5; // current size
+    int n = 5; 
 
     cout << "Elements before addition:" << endl;
     for (int i = 0; i < n; i++) {
