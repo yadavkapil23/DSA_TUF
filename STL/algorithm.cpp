@@ -7,7 +7,7 @@ int main(){
     v.push_back(12);
     v.push_back(30);
     v.push_back(56);
-    v.push_back(10);
+    v.push_back(20);
 
     cout<<"Finding : "<<binary_search(v.begin(),v.end(),30);
 
