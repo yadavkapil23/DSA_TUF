@@ -5,7 +5,7 @@ using namespace std;
 vector<int> sliding_max(vector<int>& v, int n, int k) {
     vector<int> result;
     if(k <= 0 || k > n) {
-        cout << "Invalid K." << endl;
+        cout << "Invalid K" << endl;
         return result;
     }
     
