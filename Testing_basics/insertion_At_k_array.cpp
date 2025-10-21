@@ -16,7 +16,7 @@ int main() {
     cout<<"Enter element to insert : ";cin>>k;
 
     for(int i=n; i>pos ; i--){ //moving from end to shift element towards right.
-        arr[i] = arr[i-1]; //logic behind moving.
+        arr[i] = arr[i-1]; //logic behind moving. ,  i will have the val of i-1 
     }
       arr[pos] = k; //inserting the element at given position.
       n++; //updating the size of array.
