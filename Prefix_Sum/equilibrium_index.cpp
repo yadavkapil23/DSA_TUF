@@ -4,7 +4,8 @@ using namespace std;
 bool equilibrium(vector<int>&v){
     //firstly find the total sum 
     //then prefix_sum = total_sum - suffix_sum,
-    //equilibrium condition : prefix_sum == suffix_sum.
+    //i = equilibrium index
+    //equilibrium condition : prefix_sum == suffix_sum. , sum of element before  i  = sum of elements after i
 
     int n = v.size();
     long long totalsum = 0;
