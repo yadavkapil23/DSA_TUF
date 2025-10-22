@@ -8,6 +8,10 @@ int trapping(int arr[],int n){
 //arrays to store the tallest height on left and right at the every position.
     left[0] = arr[0];
     right[n-1] = arr[n-1];
+    //For index 0, there are no bars on its left, so left[0] = arr[0]
+    //For index n-1, there are no bars on its right, so right[n-1] = arr[n-1]
+
+
     for(int i=1 ; i<n ; i++){
         left[i] = max(left[i-1],arr[i]);
     }
