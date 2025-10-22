@@ -10,7 +10,7 @@ int container(vector<int>& v) {
     
     while (left < right) {
         int left_height = v[left]; //find the height of left wall.
-        int right_height = v[right]; //find the height of rifht wall.
+        int right_height = v[right]; //find the height of right wall.
         
         int width = right - left; //distance between the two walls
         int water_ht = min(left_height, right_height); //Water height is limited by the shorter wall (water would spill over)
