@@ -7,8 +7,9 @@ void threeSum(vector<int>& v, int target) {
     sort(v.begin(), v.end());
     
     for(int i = 0; i < v.size() - 2; i++) { 
-        if(i > 0 && v[i] == v[i-1]) 
+        if(i > 0 && v[i] == v[i-1]){ 
         continue; 
+        }
         //here v.size() - 2 , because after that there will be two elements left , which can form triplet.
         int left = i + 1;
         int right = v.size() - 1;
@@ -18,17 +19,15 @@ void threeSum(vector<int>& v, int target) {
             
             if(sum == target) {
                 cout << "Found: " << v[i] << ", " << v[left] << ", " << v[right] << endl;
-                left++;
-                right--;
 
-                if(left<right && v[left] == v[left+1]){
+                while(left<right && v[left] == v[left+1]){
                     left++;
                 }
-
-                
-                if(left<right && v[right] == v[right-1]){
+                while(left<right && v[right] == v[right-1]){
                     right--;
                 }
+                left++;
+                right--;
             }
             else if(sum < target) {
                 left++;
