@@ -7,7 +7,7 @@ int searchx(vector<int>&v,int k){
     while(left <= right){
         int mid = left + (right-left)/2;
 
-        if(v[mid] <= k){
+        if(v[mid] > k){
             ans = mid;
             left = mid+1;
         }
