@@ -10,7 +10,6 @@ void printSubsequences(string input, string output, int index) {
     //Include the current character
     printSubsequences(input, output + input[index], index + 1);
 
-    //Exclude the current character.
     printSubsequences(input, output, index + 1);
 }
 int main() {
