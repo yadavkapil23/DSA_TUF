@@ -14,9 +14,10 @@ void findCombination(int ind, int target, vector<int> &arr, vector<vector<int>> 
     if (arr[ind] <= target) {
         ds.push_back(arr[ind]);
         findCombination(ind, target - arr[ind], arr, ans, ds);
-        ds.pop_back();
+        ds.pop_back(); //pop_back() removes the last added element to undo the previous choice, so we can try other possibilities correctly.
+        //like suppose if the sum is not equal to target and the index > required sum to match target, then we remove its previous element from ds and try another possiblity.
     }
-
+ 
     // move to next index
     findCombination(ind + 1, target, arr, ans, ds);
 }
