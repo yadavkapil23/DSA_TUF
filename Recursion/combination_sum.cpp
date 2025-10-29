@@ -13,8 +13,8 @@ void findCombination(int ind, int target, vector<int> &v, vector<vector<int>> &a
     // pick the element
     if (v[ind] <= target) {
         ds.push_back(v[ind]);
-        findCombination(ind, target - v[ind], v, ans, ds); //recursion to find all possible combination starting with v[ind].
-        ds.pop_back(); //pop_back() removes the last added element to undo the previous choice, so we can try other possibilities correctly.
+        findCombination(ind, target - v[ind], v, ans, ds); //inside that recursive call, we’ll again check whether we can pick the same number or move to the next one..
+        ds.pop_back(); //pop_back() removes the last added element to undo the previous choice. BACKTRACK.
         //like suppose if the sum is not equal to target and the index > required sum to match target, then we remove its previous element from ds and try another possiblity.
     }
  
@@ -46,3 +46,31 @@ int main() {
 
     return 0;
 }
+
+
+// v = {2, 3, 6, 7}
+// target = 7
+// At start:
+
+// ini
+// Copy code
+// ind = 0 (value = 2)
+// target = 7
+// ds = []
+// Step 1: 2 <= 7 → pick 2
+// → ds = [2], target = 5
+
+// Recursion again (same index, because we can reuse 2):
+
+// Pick 2 again → ds = [2, 2], target = 3
+
+// Pick 2 again → ds = [2, 2, 2], target = 1 ❌ (too big next)
+
+// Backtrack (pop_back) → ds = [2, 2]
+
+// Try next number (3) → ds = [2, 2, 3], target = 0 ✅ found one
+
+// Save [2,2,3], backtrack again (pop_back) → ds = [2,2], and so on.
+
+// After finishing with 2’s,
+// move to next number (ind+1) → try with 3, 6, 7.
