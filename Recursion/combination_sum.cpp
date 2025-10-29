@@ -2,8 +2,8 @@
 #include <vector>
 using namespace std;
 
-void findCombination(int ind, int target, vector<int> &arr, vector<vector<int>> &ans, vector<int> &ds) {
-    if (ind == arr.size()) {
+void findCombination(int ind, int target, vector<int> &candidates, vector<vector<int>> &ans, vector<int> &ds) {
+    if (ind == candidates.size()) {
         if (target == 0) {
             ans.push_back(ds);
         }
@@ -11,15 +11,15 @@ void findCombination(int ind, int target, vector<int> &arr, vector<vector<int>> 
     }
 
     // pick the element
-    if (arr[ind] <= target) {
-        ds.push_back(arr[ind]);
-        findCombination(ind, target - arr[ind], arr, ans, ds); //recursion to find all possible combination starting with arr[ind].
+    if (candidates[ind] <= target) {
+        ds.push_back(candidates[ind]);
+        findCombination(ind, target - candidates[ind], candidates, ans, ds); //recursion to find all possible combination starting with candidates[ind].
         ds.pop_back(); //pop_back() removes the last added element to undo the previous choice, so we can try other possibilities correctly.
         //like suppose if the sum is not equal to target and the index > required sum to match target, then we remove its previous element from ds and try another possiblity.
     }
  
     // move to next index
-    findCombination(ind + 1, target, arr, ans, ds);
+    findCombination(ind + 1, target, candidates, ans, ds);
 }
 
 vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
