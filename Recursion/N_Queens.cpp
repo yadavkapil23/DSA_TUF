@@ -20,7 +20,6 @@ bool isSafe(int row, int col, vector<string> &board, int n) {
 
 void solve(int row, int n, vector<string> &board) { //to place queen in each row
     if (row == n) {
-        // print the board
         for (auto &i : board)
             cout << i << endl;
         cout << endl;
