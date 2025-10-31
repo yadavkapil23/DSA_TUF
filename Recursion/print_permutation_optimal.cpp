@@ -30,6 +30,5 @@ int main() {
         for (auto num : v) cout << num << " ";
         cout << endl;
     }
-
     return 0;
 }
