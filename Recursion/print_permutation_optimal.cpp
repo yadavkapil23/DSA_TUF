@@ -15,7 +15,6 @@ void recurPermute(int index, vector<int> &v, vector<vector<int>> &ans) {
         swap(v[index], v[i]);    // backtrack
     }
 }
-
 vector<vector<int>> permute(vector<int> &v) {
     vector<vector<int>> ans;
     recurPermute(0, v, ans);
