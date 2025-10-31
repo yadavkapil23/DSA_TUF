@@ -1,0 +1,38 @@
+FUNCTION findPath(maze, N):
+    paths = empty list
+    visited = matrix of size N x N initialized with 0
+
+    IF maze[0][0] == 0:
+        RETURN paths   // No path if start is blocked
+
+    CALL solve(0, 0, maze, N, "", visited, paths)
+    RETURN paths
+
+
+FUNCTION solve(i, j, maze, N, path, visited, paths):
+    // Base case: reached destination
+    IF i == N-1 AND j == N-1:
+        ADD path TO paths
+        RETURN
+
+    // Mark current cell as visited
+    visited[i][j] = 1
+
+    // Move Down
+    IF i+1 < N AND maze[i+1][j] == 1 AND visited[i+1][j] == 0:
+        CALL solve(i+1, j, maze, N, path + "D", visited, paths)
+
+    // Move Left
+    IF j-1 >= 0 AND maze[i][j-1] == 1 AND visited[i][j-1] == 0:
+        CALL solve(i, j-1, maze, N, path + "L", visited, paths)
+
+    // Move Right
+    IF j+1 < N AND maze[i][j+1] == 1 AND visited[i][j+1] == 0:
+        CALL solve(i, j+1, maze, N, path + "R", visited, paths)
+
+    // Move Up
+    IF i-1 >= 0 AND maze[i-1][j] == 1 AND visited[i-1][j] == 0:
+        CALL solve(i-1, j, maze, N, path + "U", visited, paths)
+
+    // Backtrack (Unmark the current cell)
+    visited[i][j] = 0
