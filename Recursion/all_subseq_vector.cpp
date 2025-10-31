@@ -7,7 +7,7 @@ void printsequences(string input , string output,int index){
     }
     
     output.push_back(input[index]);
-    printsequences(input,output + input[index],index+1); //considering the sequence.
+    printsequences(input,output + input[index],index+1); //considering the sequence
 
     output.pop_back();
     printsequences(input,output,index+1);
