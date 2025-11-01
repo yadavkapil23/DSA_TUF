@@ -33,13 +33,10 @@ int main() {
     vector<int> arr = {64, 34, 25, 12, 22, 11, 90, 5};
     int n = arr.size();
     
-    cout << "Original array: ";
-    printArray(arr);
-    
     quickSort(arr, 0, n - 1);
     
     cout << "Sorted array: ";
-    printArray(arr);
+    //printArray(arr);
     
     return 0;
 }
