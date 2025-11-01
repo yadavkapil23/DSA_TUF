@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
 void merge(vector<int>& arr, int left, int mid, int right) {
     vector<int> temp;
     int i = left, j = mid + 1;
