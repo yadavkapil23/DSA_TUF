@@ -17,20 +17,20 @@ void inserting(Node* &head,int val){
         return;
     }
     else{
-        Node* temp = head;
-        while(temp->next != nullptr){
-            temp = temp->next;
+        Node* temp = head; //temp ptr used to traverse the list.
+        while(temp->next != nullptr){ //This loop keeps running as long as temp->next is NOT null
+            temp = temp->next; //moves temp to next node , like we did in arr as i++;
         }
-        temp->next = newnode;
+        temp->next = newnode; //after reachine end, We attach our new node by setting the last node's next to point to newnode
     }
 }
 
 //printing function.
 void printing(Node* head){
     Node* temp = head;
-    while(temp != nullptr){
+    while(temp != nullptr){ //cheks if temp is pointing to valid node.
         cout<<temp->data<<" ";
-        temp = temp->next;
+        temp = temp->next; //after printing the data , it moves ptr to next node.
     }
     if(head==nullptr){
     cout<<"NULL"<<endl;
