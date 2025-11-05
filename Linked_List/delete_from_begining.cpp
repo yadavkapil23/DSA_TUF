@@ -29,13 +29,14 @@ void insertion(node* &head,int val){
 
 //deletion of firt node.
 void deletion(node* &head){
-    node* temp = head;
+    node* Temp = head;
     if(head==nullptr){
         return;
     }
-    
-    temp->next=head->next;
-    temp->prev=nullptr;
+    head = head->next;
+    if(head != nullptr){
+        head->prev=nullptr;
+    }
 }
 
 void printList(node* head) {
