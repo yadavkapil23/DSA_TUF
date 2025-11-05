@@ -24,27 +24,26 @@ void insertion(node* &head,int val){
       temp->next = newnode;
   }
 }
-//detecting a cycle
-void cycle_detection(node* &head){
-    if(head == nullptr){
-        cout<<"Empty LL";
-        return;
-    }
-    node* slow = head;
-    node* fast = head;
-    
-    while(fast != nullptr && fast->next != nullptr){
-        slow = slow->next;
-        fast = fast->next->next;
-    
-    if(slow == fast){
-        cout<<"Cycle Exists"<<endl;
-        cout<<slow->data<<endl;
-        return;
-    }
-    }
-    cout<<"Doesnt Exist"<<endl;
-}
+node* start_pt_detection(node* &head){
+        if(head == nullptr){
+            return;
+        }
+        node* slow = head;
+        node* fast = head;
+        while(fast != nullptr && fast->next != nullptr){
+            slow = slow->next;
+            fast = fast->next->next;
+            if(slow==fast){
+                fast = head;
+            while(slow != fast){
+              slow = slow->next;
+              fast = fast->next;                  
+                }
+                return slow;
+            }
+        }
+        return nullptr;
+};
 
 int main(){
     int val;
@@ -56,6 +55,6 @@ int main(){
         insertion(head,val);
         cout<<"Do you want to enter more elments : ";cin>>ch;
     }
-    cycle_detection(head);
+    start_pt_detection(head);
     
 }
