@@ -39,6 +39,16 @@ void deletion(node* &head){
     }
 }
 
+
+//another way to delete.
+node* removesHead(node* head) {
+    if(head == NULL) return head;
+    node* temp = head;
+    head = head->next;
+    delete temp;
+    return head;
+}
+
 void printList(node* head) {
     node* temp = head;
     while (temp != nullptr) {
