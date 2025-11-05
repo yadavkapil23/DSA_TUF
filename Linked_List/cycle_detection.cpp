@@ -3,10 +3,12 @@ using namespace std;
 struct node{
     int data;
     node* next;
+    bool visited;
     
     node(int val){
         data = val;
         next = nullptr;
+        visited = false;
     }
 };
 
@@ -28,24 +30,22 @@ void insertion(node* &head,int val){
 }
 
 //detecting a cycle
-void cycle_detection(node* &head){
+void cycle_detection(node* head){
     if(head == nullptr){
         cout<<"Empty LL";
         return;
     }
-    node* slow = head;
-    node* fast = head;
     
-    while(fast != nullptr && fast->next != nullptr){
-        slow = slow->next;
-        fast = fast->next->next;
-    
-    if(slow == fast){
-        cout<<"Cycle Exists"<<endl;
-        return;
+    node* temp = head;
+    while(temp != nullptr){
+        if(temp->visited){  // Already visited
+            cout<<"Cycle Exists"<<endl;
+            return;
+        }
+        temp->visited = true;
+        temp = temp->next;
     }
-    }
-    cout<<"Doesnt Exist"<<endl;
+    cout<<"Doesn't Exist"<<endl;
 }
 int main(){
     int val;
