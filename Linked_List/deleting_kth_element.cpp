@@ -28,7 +28,7 @@ void insertion(node* &head,int val){
 }
 
 //way to delete.
-node* removeK(node* head, int k) {
+node* removeK(node* head, int k) { //this function retunrns a node.
     if(head == NULL) return head;
     if(k == 1) {
         node* temp = head;
