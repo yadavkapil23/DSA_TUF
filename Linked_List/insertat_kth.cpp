@@ -33,7 +33,7 @@ void inserting(Node* &head,int val){
 
 //inserting at Kth position
 void insertatK(Node* &head,int pos,int value){
-    Node* newnode1 = new Node(value); //insert at pos=1.
+    Node* newnode1 = new Node(value); 
     if(pos==1 || head==nullptr){
         if(head==nullptr){
         head=newnode1;
