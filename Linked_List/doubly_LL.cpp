@@ -1,7 +1,5 @@
 #include <iostream>
 using namespace std;
-
-// Node structure for Doubly Linked List
 struct Node {
     int data;
     Node* prev;
