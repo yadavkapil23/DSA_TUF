@@ -38,7 +38,7 @@ node* removeK(node* head,int target) { //this function retunrns a node.
     }
     node* temp = head;
     node* prev = NULL;
-    while(temp != NULL) {
+    while(temp != NULL) { //checks for other nodes
         if(temp->data == target) {
             prev->next = prev->next->next;
             delete temp;
