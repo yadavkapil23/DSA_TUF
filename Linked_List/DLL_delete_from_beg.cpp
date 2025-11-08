@@ -48,7 +48,9 @@ void deletion_begining(node* &head){
     node* temp = head;
     head = head->next;
     delete temp;
-    head->prev=nullptr;
+    if(head != nullptr){
+        head->prev=nullptr;
+    }
 
 }
 int main() {
