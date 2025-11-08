@@ -38,6 +38,19 @@ void printing(node* &head) {
 		temp=temp->next;
 	}
 }
+
+//delete from begining
+void deletion_begining(node* &head){
+    if(head==nullptr){
+        return;
+    }
+
+    node* temp = head;
+    head = head->next;
+    delete temp;
+    head->prev=nullptr;
+
+}
 int main() {
 	node* head = nullptr;
 	int val;
