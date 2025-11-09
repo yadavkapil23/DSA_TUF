@@ -39,7 +39,7 @@ node* removeK(node* head, int k) { //this function retunrns a node.
     int cnt = 0;
     node* temp = head;
     node* prev = NULL;
-    while(temp != NULL) {
+    while(temp != NULL && cnt<k) {
         cnt++;
         if(cnt == k) {
             prev->next = prev->next->next;
