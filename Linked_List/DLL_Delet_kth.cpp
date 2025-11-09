@@ -1,3 +1,8 @@
+//WHILE INSERTION AT Kth node , STOP AT (K-1)th node, means one node before.
+//WHILE DELETION AT Kth node , STOP AT Kth node , means on the kth node. , as we have to seclt that node to remove.
+
+
+
 #include <iostream>
 using namespace std;
 
