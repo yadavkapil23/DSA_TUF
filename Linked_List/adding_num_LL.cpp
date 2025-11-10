@@ -19,7 +19,7 @@ Node* addingnum(Node* &head1 , Node* &head2){
         Node* current = dummynode;
         int sum=0;
         while(temp1 != nullptr || temp2 != nullptr || carry){
-            sum = carry;
+            sum = carry; //start with the previous carry.
             if(temp1){
                 sum = temp1->data+sum;
                 temp1=temp1->next;
