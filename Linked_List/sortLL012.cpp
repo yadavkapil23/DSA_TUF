@@ -72,9 +72,6 @@ int main(){
     fourth->next=fifth;
     fifth->next=sixth;
     sixth->next=nullptr;
-    
-cout << "Before sorting: ";
-printList(head);
 
 sortlist(head);
 
