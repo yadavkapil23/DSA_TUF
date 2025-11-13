@@ -73,8 +73,14 @@ int main(){
     insert(head,12);
     insert(head,23);
     insert(head,65);
-    insert(head,10);
-    insert(head,78);
+    insert(head,23);
+    insert(head,12);
     print(head);
-    Palindrome(head);
+    bool isPalindrome = Palindrome(head);
+    if(isPalindrome){
+        cout<<"Yes";
+    }
+    else{
+        cout<<"No";
+    }
 }
