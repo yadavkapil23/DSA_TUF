@@ -70,6 +70,5 @@ int main() {
         cout << output->data << endl;
     else
         cout << "No intersection" << endl;
-
     return 0;
 }
