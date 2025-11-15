@@ -4,7 +4,6 @@ struct node{
     int data;
     node* next;
 };
-
 node* sortlist(node* &head){
     node* zerohead = nullptr;
     node* zerotail = nullptr;
