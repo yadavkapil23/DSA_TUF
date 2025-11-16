@@ -32,6 +32,7 @@ while(first != nullptr){
 node* second=first->next;
 while(second != nullptr){
     if(first->data + second->data == sum){
+        cout<<first->data<<" "<<second->data<<endl;
     }
     second=second->next;
 }
