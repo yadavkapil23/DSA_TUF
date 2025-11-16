@@ -38,7 +38,7 @@ void print(node* &head){
 void deletingocc(node* &head,int key){
 node* temp = head;
 while(temp != nullptr){
-    while(temp->data == key){
+    if(temp->data == key){
         //remove that  , apply conditions for the head , nth and last position.
         if(temp==head){
             head = head->next;
@@ -55,9 +55,6 @@ while(temp != nullptr){
     temp = temp->next;
 }
 }
-
-
-
 int main(){
     node* head = nullptr;
     insert(head,12);
