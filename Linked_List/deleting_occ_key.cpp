@@ -22,6 +22,37 @@ void insert(node* &head,int val){
         temp=temp->next;
     }
     temp->next=newnode;
+    newnode->prev=temp;
+}
+
+void deletingocc(node* &head,int key){
+node* temp = head;
+while(temp != nullptr){
+    if(temp->data == key){
+        node* todelete = temp;
+        //remove that  , apply conditions for the head , nth and last position.
+        if(temp==head){
+            if(head==nullptr){
+                return;
+            }
+            else{
+                head = head->next;
+                temp = head;
+            }
+        }
+        else if(temp->next==nullptr){
+            temp=temp->prev;
+            temp->next=nullptr;
+        }
+        else{
+        temp->prev->next=temp->next;
+        temp->next->prev = temp->prev;
+        temp=temp->next;
+        }
+        delete(todelete);
+    }
+    temp = temp->next;
+}
 }
 
 void print(node* &head){
@@ -35,26 +66,6 @@ void print(node* &head){
     }
 }
 
-void deletingocc(node* &head,int key){
-node* temp = head;
-while(temp != nullptr){
-    if(temp->data == key){
-        //remove that  , apply conditions for the head , nth and last position.
-        if(temp==head){
-            head = head->next;
-            delete(temp);
-        }
-        if(temp->next==nullptr){
-            temp=temp->prev;
-            temp->next=nullptr;
-        }
-        else{
-        temp->prev->next=temp->next;
-        }
-    }
-    temp = temp->next;
-}
-}
 int main(){
     node* head = nullptr;
     insert(head,12);
@@ -62,5 +73,6 @@ int main(){
     insert(head,65);
     insert(head,23);
     insert(head,12);
+    deletingocc(head,12);
     print(head);
 }
