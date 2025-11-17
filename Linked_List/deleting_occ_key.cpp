@@ -65,7 +65,6 @@ void print(node* &head){
         temp=temp->next;
     }
 }
-
 int main(){
     node* head = nullptr;
     insert(head,12);
