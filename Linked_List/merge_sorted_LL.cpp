@@ -15,26 +15,27 @@ void display(node* head) {
 }
 
 void merging(node* &list1,node* &list2){
-    node* temp = list1;
-    node* xtemp = list2;
-    
-    while(temp && xtemp){
-        while(temp->data < xtemp->data){
-            temp=temp->next;
-            if(temp->data >= xtemp->data){
-                temp->next=xtemp;
-            }
-            
+    node* t1 = list1;
+    node* t2 = list2;
+    node*  dummynode = new node();
+    node* temp = dummynode;
+
+    while(t1 && t2){
+        if(t1->data < t2->data){
+            temp->next=t1;
+            temp=t1;
+            t1=t1->next;
         }
-
-
-        while(xtemp->data < temp->data){
-            xtemp=xtemp->next;
-            if(xtemp->data >= temp->data){
-                xtemp->next=temp;
-            }
+        else{
+            temp->next=t2;
+            temp=t2;
+            t2=t2->next;
         }
     }
+
+        if(t1) temp->next=t1;
+        else temp->next=t2;
+
 }
 
 
@@ -60,6 +61,10 @@ int main() {
     b2->next = b3;
     b3->next = b4;
     b4->next = b5;
+
+    merging(list1,list2);
+
+    display(list1);
 
 
     return 0;
