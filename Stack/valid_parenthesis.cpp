@@ -6,9 +6,11 @@ bool checking(string str){
 
 for(int i=0 ; i<str.length() ; i++){
     char ch = str[i];
+
 if(ch=='(' || ch=='[' || ch=='{'){
     st.push(ch);
 }
+
 else if(ch==')' || ch==']' || ch=='}'){
     if(st.empty()){
         return false;
@@ -16,11 +18,9 @@ else if(ch==')' || ch==']' || ch=='}'){
     else{
        char top = st.top();
        st.pop();
-        if((ch==')' && top!='(') || 
-               (ch==']' && top!='[') || 
-               (ch=='}' && top!='{')){
+        if((ch==')' && top!='(') || (ch==']' && top!='[') || (ch=='}' && top!='{')){
                 return false;
-            }
+        }
     }
 }
 }
