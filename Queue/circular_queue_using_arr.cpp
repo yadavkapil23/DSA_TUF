@@ -1,82 +1,85 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-#define size 10
-int que[size];
-int currsize = 0;
+
+#define SIZE 10
+
+int que[SIZE];
 int front = -1;
-int temp;
-int toppest;
-int last = -1;
-void push(int x){
-    if(currsize == size){
-        cout<<"que is Full"<<endl;
-        return;
-    }
-    else if(currsize == 0){
-        front = 0;
-        last = 0;
-        que[last] = x;
-        currsize++;
-    }
-    else{
-        last = (last + 1)%size;
-        que[last] = x;
-        currsize++;
-    }
+int rear = -1;
+
+bool isEmpty() {
+    return (front == -1);
 }
 
-int pop(){
-    if(currsize == 0 || currsize < 0){
+bool isFull() {
+    return ((rear + 1) % SIZE == front);
+}
+
+void push(int x) {
+    if (isFull()) {
+        cout << "Queue is Full\n";
+        return;
+    }
+
+    if (isEmpty()) {
+        front = rear = 0;
+    } else {
+        rear = (rear + 1) % SIZE;
+    }
+
+    que[rear] = x;
+}
+
+int pop() {
+    if (isEmpty()) {
+        cout << "Queue is Empty\n";
         return -1;
     }
 
-    temp = que[front];
+    int value = que[front];
 
-    if(currsize == 1){
-        front = last = -1;
-        currsize--;
-        return front;
+    if (front == rear) {   // only 1 element
+        front = rear = -1;
+    } else {
+        front = (front + 1) % SIZE;
     }
-    else{
-        front = (front+1)%size;
-    }
-        currsize--;
-        return que[temp]; //returning the popped element.
+
+    return value;
 }
 
-int top(){
-    if(currsize == 0){
-        cout<<"Empty Queue";
+int top() {
+    if (isEmpty()) {
+        cout << "Queue is Empty\n";
+        return -1;
     }
-    else{
-        return que[front];
-    }
+    return que[front];
 }
 
-void display(){
-    if(front == -1 || currsize <= 0){
-        cout<<"Empty Queue"<<endl;
+void display() {
+    if (isEmpty()) {
+        cout << "Queue is Empty\n";
+        return;
     }
-    else{
-         int i=front;
-         while(true){
-            cout<<que[i]<<" ";
 
-            if(i == last){
-                break;
-            }
-            i = (i+1) % size;
-         }
+    int i = front;
+    while (true) {
+        cout << que[i] << " ";
+        if (i == rear) break;
+        i = (i + 1) % SIZE;
     }
+    cout << endl;
 }
 
-int main(){
-//ill write this code later , just check the above code
-push(12);
-push(45);
-top();
-push(32);
-pop();
-top();
-display();
+int main() {
+    push(12);
+    push(45);
+    push(32);
+
+    cout << "Top: " << top() << endl;
+
+    cout << "Popped: " << pop() << endl;
+
+    cout << "Top: " << top() << endl;
+
+    display();
 }
