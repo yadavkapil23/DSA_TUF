@@ -3,6 +3,9 @@
 using namespace std;
  stack<int> minst;
 
+//WE CAN ALSO DO THIS QUESTION USING THE PAIRS.
+
+
 void pushMin(stack<int> &st, int x) {
     st.push(x);
 
