@@ -7,18 +7,18 @@ void postfixtoinfix(string s){
     stack<string> st; 
     while(i < s.length()){
         if((s[i] >= 'A' && s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z') || (s[i] >= '0' && s[i] <= '9')){
-            string op(1, s[i]); // Convert char to string
-            st.push(op);
+            string operand(1, s[i]); // Convert char to string
+            st.push(operand);
         }
         // If it is an operator, pop two and combine
         else {
-            string op2 = st.top(); 
+            string operand2 = st.top(); 
             st.pop();
-            string op1 = st.top(); 
+            string operand1 = st.top(); 
             st.pop();
 
             // Combine logic: "(" + Left + Operator + Right + ")"
-            string temp = "(" + op1 + s[i] + op2 + ")";
+            string temp = "(" + operand1 + s[i] + operand2 + ")";
             st.push(temp);
         }
         i++;
