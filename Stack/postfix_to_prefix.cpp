@@ -15,8 +15,10 @@ string postfixtoprefix(string s) {
 
         // operator → pop two strings and combine
         else {
-            string b = st.top(); st.pop();
-            string a = st.top(); st.pop();
+            string b = st.top(); 
+            st.pop();
+            string a = st.top(); 
+            st.pop();
 
             string temp = s[i] + a + b;   // prefix form
             st.push(temp);
