@@ -1,5 +1,6 @@
 //implementing the min stack 
 #include<iostream>
+#include<vector>
 #include<stack>
 #include<string>
 #include<climits>
