@@ -3,8 +3,8 @@
 #include<stack>
 using namespace std;
 vector<int> solution(vector<int> &v){
-    stack<int> st;
-    vector<int> span;
+    stack<int> st; //it remembers the days that have stock prices was equal or less than current
+    vector<int> span; //to store the span for each day.
     int n = v.size();
     for(int i=0 ; i<n ; i++){
         while(!st.empty() && v[st.top()] <= v[i]){
