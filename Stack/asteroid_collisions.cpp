@@ -13,13 +13,13 @@ for(int i=0 ; i<n ; i++){
        st.push(v[i]); 
     }
     else{
-        while(!st.empty() && st.top() > 0 && st.top() < abs(v[i])){
+        while(!st.empty() && st.top() > 0 && st.top() < abs(v[i])){ //kills smaller right moving asteroids when they collide with the bigger left
             st.pop();
         }
-        if(!st.empty() && st.top() == abs(v[i])){
+        if(!st.empty() && st.top() == abs(v[i])){ //checks if we found an equal sized one.
             st.pop();
         }
-        else if(st.empty() || st.top() < 0){
+        else if(st.empty() || st.top() < 0){ //the left moving asteroid survives if st is empty or top of stack is neg , means moving left.
             st.push(v[i]);
         }
     }
