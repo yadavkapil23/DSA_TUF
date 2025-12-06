@@ -3,7 +3,7 @@
 #include<stack>
 #include<algorithm>
 using namespace std;
-stack<int> removekdigits(string &s,int k){
+string removekdigits(string s,int k){
     int l = s.length();
     stack<int> st;
     for(int i=0 ; i<l ; i++){
@@ -13,18 +13,36 @@ stack<int> removekdigits(string &s,int k){
     }
     st.push(s[i]);
     }
-    return st;
+
+    while (k > 0 && !st.empty()) {
+        st.pop();
+        k--;
+    }
+
+    if(st.empty()){
+        return "0";
+    }
+
+    string res = "";
+    while(!st.empty()){
+        res += st.top();
+        st.pop();
+    }
+    reverse(res.begin(), res.end());
+
+    while(res.size() > 0 && res[0] == 0){
+        res.erase(res.begin());
+    }
+
+    if(res.empty()){
+        return "0";
+    }
+    return res;
 }
 int main(){
     string s = "127890";
     int k = 3;
-    string result;
-    stack<int> ans = removekdigits(s,k);
-    while (!ans.empty()) {
-    result += ans.top();  // adds characters in reverse order
-    ans.pop();
-}
-reverse(result.begin(), result.end());
-cout<<result<<endl;
+    string ans = removekdigits(s,k);
+    cout<<ans<<endl;
     return 0;
 }
