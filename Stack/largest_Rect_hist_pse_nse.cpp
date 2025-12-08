@@ -21,7 +21,6 @@ vector<int> findNSE(vector<int> &v){
     }
     return nse;
 }
-
 vector<int> findPSE(vector<int>& arr) {
     int n = arr.size();
     vector<int> result(n);
@@ -31,7 +30,6 @@ vector<int> findPSE(vector<int>& arr) {
         while(!st.empty() && st.top() >= arr[i]){
             st.pop();
         }
-
         if(st.empty()){
             result[i] = -1;
         }
