@@ -13,7 +13,6 @@ string removekdigits(string s,int k){
     }
     st.push(s[i]);
     }
-
     while (k > 0 && !st.empty()) {
         st.pop();
         k--;
