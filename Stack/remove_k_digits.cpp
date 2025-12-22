@@ -21,7 +21,6 @@ string removekdigits(string s,int k){
     if(st.empty()){
         return "0";
     }
-
     string res = "";
     while(!st.empty()){
         res += st.top();
