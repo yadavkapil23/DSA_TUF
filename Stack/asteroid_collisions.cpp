@@ -9,7 +9,8 @@ int n = v.size();
 stack<int> st;
 vector<int> res;
 for(int i=0 ; i<n ; i++){
-    if(v[i] > 0){
+    if(v[i] > 0){  //we store positive elements , Asteroids collide ONLY when a right-moving asteroid is before a left-moving asteroid. 
+        //if array start with neg , nothing will happen as neg move to left and willnt collide.
        st.push(v[i]); 
     }
     else{
