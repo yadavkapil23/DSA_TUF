@@ -7,7 +7,7 @@ int xor_function(vector<int>& v,int n){
         xor1 = xor1^i;
     }
     
-    int xor2 = 0;
+    int xor2 = 0;fi
     for(int i=0 ; i<n-1 ; i++){
         xor2 = xor2^v[i];
     }
