@@ -14,7 +14,7 @@ void findCombination(int ind, int target, vector<int> &v, vector<vector<int>> &a
     if (v[ind] <= target) {
         ds.push_back(v[ind]);
         findCombination(ind, target - v[ind], v, ans, ds); //inside that recursive call, we’ll again check whether we can pick the same number or move to the next one..
-        ds.pop_back(); //pop_back() removes the last added element to undo the previous choice. BACKTRACK.
+        ds.pop_back(); //pop_back() removes the last added element to undo  the previous choice. BACKTRACK.
         //like suppose if the sum is not equal to target and the index > required sum to match target, then we remove its previous element from ds and try another possiblity.
     }
  

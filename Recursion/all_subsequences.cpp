@@ -19,3 +19,20 @@ int main() {
     return 0;
 }
  
+
+// for 2  recursive calls it works like this - take it or do not take it.
+// ""  
+// ├── "a"
+// │   ├── "ab"
+// │   │   ├── "abc"  ✔
+// │   │   └── "ab"   ✔
+// │   └── "a"
+// │       ├── "ac"   ✔
+// │       └── "a"    ✔
+// └── ""
+//     ├── "b"
+//     │   ├── "bc"   ✔
+//     │   └── "b"    ✔
+//     └── ""
+//         ├── "c"    ✔
+//         └── ""     ✔
