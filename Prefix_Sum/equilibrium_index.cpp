@@ -23,7 +23,7 @@ bool equilibrium(vector<int>&v){
 
         //prefixsum - v[i] → sum before index i
 
-        if(prefixsum - v[i] == suffixsum){
+        if(prefixsum - v[i] ==suffixsum){
             return true; //or return i;
         }
     }
