@@ -16,15 +16,16 @@ bool equilibrium(vector<int>&v){
         totalsum += v[i];
     }
 
+    //index i should not be included in equilibrium
     for(int i=0 ; i<n ; i++){
         prefixsum += v[i];
-        suffixsum = totalsum - prefixsum - v[i];
+        suffixsum = totalsum - prefixsum;
 
-        if(suffixsum == prefixsum){
+        //prefixsum - v[i] → sum before index i
+
+        if(prefixsum - v[i] == suffixsum){
             return true; //or return i;
         }
-
-        prefixsum += v[i];
     }
     return false;
 }
