@@ -15,7 +15,6 @@ int main(){
         }
         swap(v[i],v[small]); //swap the element with the current position.
     }
-    
     cout<<"The Vector After Applying the Selection Sort : "<<endl;
     for(int i=0 ; i<n; i++){
         cout<<v[i]<<endl;
