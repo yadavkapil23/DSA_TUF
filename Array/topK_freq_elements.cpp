@@ -13,7 +13,6 @@ vector<int> KFreq(vector<int> &v,int k){
     for(auto i:v){ //to count.
         m[i]++;
     }
-    
     //creating a vector to store those key value pairs of number and its count.
     vector<pair<int,int>> freq;
     for(auto &p : m){
