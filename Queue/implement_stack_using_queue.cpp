@@ -29,7 +29,6 @@ int pop(){
 int topelement(){
     return q1.front();
 }
-
 int main(){
     pushing(10);
     pushing(20);
