@@ -10,7 +10,6 @@ int rear = -1;
 int isFull(){
     return (rear + 1)%size == front;
 }
-
 int isEmpty(){
     return front == -1 && rear == -1;
 }
