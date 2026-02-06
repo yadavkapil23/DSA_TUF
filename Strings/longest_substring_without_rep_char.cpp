@@ -6,26 +6,22 @@
 #include<vector>
 #include<climits>
 using namespace std;
+    int lengthOfLongestSubstring(string s) {
+       unordered_set<char> seen;
+       int left = 0;
+       int maxlen = 0;
 
-string longestsubst(string &s) {
-    unordered_set<char> seen;
-    string currentsub = "", best = "";
+       for(int right = 0; right<s.size() ; right++){
+        while(seen.count(s[right])){
+            seen.erase(s[left]);
+            left++;
+       }
 
-    for (char c : s) {
-        if (seen.count(c)) {
-            seen.clear();
-            currentsub = "";
-        }
-
-        currentsub += c;
-        seen.insert(c); //mark it is seen.
-
-        if (currentsub.size() > best.size()) {
-            best = currentsub;
-        }
-    }
-    return best;
-}
+       seen.insert(s[right]);
+       maxlen =  max(maxlen,right-left+1);
+       }
+       return maxlen;
+};
 
 
 int main(){
