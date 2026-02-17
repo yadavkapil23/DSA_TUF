@@ -34,5 +34,10 @@ int main(){
     string t;
     getline(cin,t);
 
-    isIsomorphic(s,t);
+    if(isIsomorphic(s,t)){
+        cout<<"YES";
+    }
+    else{
+        cout<<"NO";
+    }
 }
