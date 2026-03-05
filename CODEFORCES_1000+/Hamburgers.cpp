@@ -6,7 +6,6 @@ using namespace std;
 int main(){
     string s;
     getline(cin,s);
-    
     long long breadneed = count(s.begin(),s.end(),'B');
     long long sausageneed = count(s.begin(),s.end(),'S');
     long long cheeseneed = count(s.begin(),s.end(),'C');
