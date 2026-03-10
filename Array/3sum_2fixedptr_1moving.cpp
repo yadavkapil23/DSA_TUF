@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-//suppose target = 0;
+//suppose target=0;
 vector<vector<int>> threeesum(vector<int> &v){
     int n = v.size();
     int sum = 0;
