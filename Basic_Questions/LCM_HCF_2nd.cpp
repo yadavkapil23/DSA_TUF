@@ -9,7 +9,6 @@ using namespace std;
     }
     return a;
 }
-
     int LCM(int a ,int b){
         return (a/(GCD(a,b))*b);
     }
