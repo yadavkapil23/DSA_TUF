@@ -21,12 +21,12 @@ int depth(node* root,int target,int level=0){
         return level;
     }
 
-    int left = depth(root,target,level+1);
+    int left = depth(root->left,target,level+1);
     if(left != -1){
         return left;
     }
 
-    int right = depth(root,target,level+1);
+    int right = depth(root->right,target,level+1);
     return right;
 }
 
