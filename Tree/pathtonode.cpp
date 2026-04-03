@@ -1,9 +1,11 @@
 #include<iostream>
 using namespace std;
 bool getpath(node* root,vector<int> &v,int target){
-    if(root->data == nullptr){
+    if(root == nullptr){
         return false;
     }
+    
+    v.push_back(root->data);
     
     if(root->data == target){
         return true;
