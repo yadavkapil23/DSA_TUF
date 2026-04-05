@@ -18,15 +18,15 @@ int diameter(node* root){
         return 0;
     }
     
-    int lh = maxdepth(root->left);
-    int rh = maxdepth(root->right);
+    int leftHeight = maxdepth(root->left);
+    int rightHeight = maxdepth(root->right);
     
-    maxi = max(maxi,lh+rh);
+    int diameterThroughRoot = leftHeight + rightHeight;
+    int leftSubtreeDiameter = diameter(root->left);
+    int rightSubtreeDiameter = diameter(root->right);
     
-    diameter(root->left);
-    diameter(root->right);
-    
-    return maxi;
+    return max(diameterThroughRoot, 
+               max(leftSubtreeDiameter, rightSubtreeDiameter));
 }
 
 int main(){
