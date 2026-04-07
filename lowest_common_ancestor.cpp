@@ -4,98 +4,40 @@
 #include<vector>
 #include<queue>
 using namespace std;
-struct node{
+struct TreeNode{
     int data;
-    node* left;
-    node* right;
+    TreeNode* left;
+    TreeNode* right;
     
-    node(int value){
+    TreeNode(int value){
         data = value;
         left = right = nullptr;
     }
 };
 
-node* buildtree(){
-    int val;
-    cin>>val;
-    
-    if(val == -1){
-        return nullptr;
-    }
-    
-    node* root = new node(val);
-    
-    root->left = buildtree();
-    root->right = buildtree();
-    
-    return root;
-}
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root==nullptr || root==p || root==q){
+            return root;
+        }
 
-bool Pathtonode1(node* root,int p,vector<int> &pth){
-if(root==nullptr){
-    return false;
-}
+        TreeNode* left = lowestCommonAncestor(root->left,p,q);
+        TreeNode* right = lowestCommonAncestor(root->right,p,q);
 
-pth.push_back(root->data);
-
-if(root->data == p){
-    return true;
-}
-
-if(Pathtonode1(root->left,p,pth) || Pathtonode1(root->right,p,pth)){
-    return true;
-}
-
-pth.pop_back();
-return false;
-}
-
-
-bool Pathtonode2(node* root,int q,vector<int> &qth){
-if(root==nullptr){
-    return false;
-}
-
-qth.push_back(root->data);
-
-if(root->data == q){
-    return true;
-}
-
-if(Pathtonode2(root->left,q,qth) || Pathtonode2(root->right,q,qth)){
-    return true;
-}
-
-qth.pop_back();
-return false;
-}
-
-int compare(vector<int> &pth, vector<int> &qth){
-    int n = min(pth.size(), qth.size());
-    int target = -1;
-
-    for(int i = 0; i < n; i++){
-        if(pth[i] == qth[i]){
-            target = pth[i];   
-        } else {
-            break;
+        if(left == nullptr){
+            return right;
+        }
+        else if(right == nullptr){
+            return left;
+        }
+        else{
+            return root;
         }
     }
-    return target;
-}
+
 int main(){
-    node* root = buildtree();
-    int p;
-    cin>>p;
-    vector<int> pth;
-    
-    int q;
-    cin>>q;
-    vector<int> qth;
-    
-    Pathtonode1(root,p,pth);
-    Pathtonode2(root,q,qth);
-    
-    int ans = compare(pth,qth);
-    cout<<ans;
+    TreeNode* root;
+    TreeNode* p;
+    TreeNode* q;
+    lowestCommonAncestor(root,p,q);
+    return 0;
 }
