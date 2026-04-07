@@ -207,4 +207,8 @@ int main(){
     cout<<dia<<endl;
     
     return 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 39389db0dda993f47c567a232defbbf006385a89
