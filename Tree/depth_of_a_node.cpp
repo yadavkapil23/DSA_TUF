@@ -14,20 +14,20 @@ struct node{
 
 int depth(node* root,int target,int level=0){
     if(root==nullptr){
-        return 0;
+        return -1;
     }
     
     if(root->data==target){
         return level;
     }
 
-    int left = depth(root,target,level+1);
-    if(left != -1){
-        return left;
+    int l = depth(root->left,target,level+1);
+    if(l != -1){
+        return l;
     }
 
-    int right = depth(root,target,level+1);
-    return right;
+    int r = depth(root->right,target,level+1);
+    return r;
 }
 
 
