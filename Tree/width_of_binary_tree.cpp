@@ -18,8 +18,8 @@ public:
                 TreeNode* node = q.front().first;
                 q.pop();
 
-                if(i == 0) first = cur_id;
-                if(i == size - 1) last = cur_id;
+                if(i == 0) first = cur_id; //when u reach the first node at that level store its index.
+                if(i == size - 1) last = cur_id;   //when u reach the last node at that level , store its index , these are used to find the distance between the left and the right .
 
                 if(node->left)
                     q.push({node->left, cur_id * 2 + 1});
