@@ -1,41 +1,58 @@
-bool isleftoright = true;
-vector<vector<int>> ans;
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<queue>
+using namespace std;
+struct node{
+    int data;
+    node* left;
+    node* right;
+    
+    node(int val){
+        data = val;
+        left = right = nullptr;
+    }
+};
+
+
 vector<vector<int>> zigzag(node* root){
-    if(root==nullptr){
-        return nullptr;
+    if(root == nullptr){
+        return {};
     }
     
+    vector<vector<int>> result;
     queue<node*> q;
     q.push(root);
+    bool leftoright = true;
+    
     
     while(!q.empty()){
-    int n = q.size();
-    vector<int> res(n);
-    
+        int n = q.size();
+        
+        vector<int> level;
+        
     for(int i=0 ; i<n ; i++){
-    node* current = q.front();
-    q.pop();
-    int index;
-    
-    if(isleftoright){
-        index = i;
-    }
-    else{
-        index = n-i-1;
-    }
-    
-    res[index] = current->data;
-    
-    if(current->left){
-        q.push(current->left);
-    }
-    if(current->right){
-        q.push(current->right);
-    }
+        node* curr = q.front();
+        q.pop();
+        
+        level.push_back(curr->data);
+        
+        if(curr->left != nullptr){
+            q.push(curr->left);
+        }
+        if(curr->right != nullptr){
+            q.push(curr->right);
+        }
     }
     
-    ans.push_back(res);
-    isleftoright = !isleftoright;
+    if(!leftoright){
+        reverse(level.begin(),level.end());
     }
-    return ans;
+    
+    result.push_back(level);
+    
+    leftoright = !leftoright;
+    }
+    
+    return result;
 }
