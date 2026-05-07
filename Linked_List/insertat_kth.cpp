@@ -51,7 +51,7 @@ void insertatK(Node* &head,int pos,int value){
         count++;
     }
     
-    //if position beyond length , insert middle.
+    //if position beyond length ,insert atend
     if(temp == nullptr || temp->next==nullptr){
         temp->next=newnode1;
         newnode1->prev=temp;
