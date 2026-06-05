@@ -7,19 +7,19 @@ vector<int> Moore(vector<int>&v , int n){
     int count = 0;
     int count2 = 0;
     for(int i=0 ; i<n ; i++){
-        if(count == 0){
+        if(v[i] == candidate){
+            count++;
+        }
+        else if(v[i] == candidate2){
+            count2++;
+        }
+        else if(count == 0){
             candidate = v[i];
             count = 1;
         }
         else if(count2 == 0){
             candidate2 = v[i];
             count2 = 1;
-        }
-        else if(v[i] == candidate){
-            count++;
-        }
-        else if(v[i] == candidate2){
-            count2++;
         }
         else{
             count--;
