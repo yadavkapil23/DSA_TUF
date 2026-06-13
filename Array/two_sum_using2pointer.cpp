@@ -1,6 +1,6 @@
 //FOR THIS THE ARRAY MUST BE SORTED 
 
-
+//WRONG CODE.
 #include<iostream>
 #include<vector>
 #include<algorithm>
