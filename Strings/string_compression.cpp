@@ -16,7 +16,7 @@ public:
             i++;
         }
         
-        //assign workg
+
         chars[index] = currentchar;
         index++;
         
